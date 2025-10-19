@@ -2,6 +2,7 @@ import Certificates.FizraCertificate;
 import Certificates.MathCertificate;
 import Certificates.PatternsCertificate;
 import Courses.*;
+import Facade.StudentPortalFacade;
 import Gamifications.FizraGamification;
 import Gamifications.MathGamification;
 import Gamifications.PatternsGamification;
@@ -16,16 +17,24 @@ public class Main {
         Certificate MC = new MathCertificate();
         Gamification mathGamification = new MathGamification();
         Course mathCourse = new MathCourse(mathMentor, mathKabinet, MC, mathGamification);
+        StudentPortalFacade portal = new StudentPortalFacade();
         System.out.println("--- Math Course ---");
-        mathCourse.deliverContent();
+        portal.enrollInCourse(mathCourse);
+        portal.startLearning(mathCourse);
+        portal.completeCourse(mathCourse);
+        portal.showProgress();
 
         Mentor fizraMentor = new FizraMentor();
         Kabinet fizraKabinet = new FizraKabinet();
         Certificate fizraCertificate = new FizraCertificate();
         Gamification fizraGamification = new FizraGamification();
         Course fizraCourse = new Fizra(fizraMentor, fizraKabinet, fizraCertificate, fizraGamification);
+        StudentPortalFacade portal2 = new StudentPortalFacade();
         System.out.println("\n--- Fizra Course ---");
-        fizraCourse.deliverContent();
+        portal2.enrollInCourse(fizraCourse);
+        portal2.startLearning(fizraCourse);
+        portal2.completeCourse(fizraCourse);
+        portal2.showProgress();
 
 
         Mentor PatternMentor = new PatternsMentor();
@@ -33,7 +42,12 @@ public class Main {
         Certificate PatternCertificate = new PatternsCertificate();
         Gamification PatternGamification = new PatternsGamification();
         Course PatternCourse = new DesignPatterns(PatternMentor, PatternKabinet, PatternCertificate, PatternGamification);
+        StudentPortalFacade portal3 = new StudentPortalFacade();
         System.out.println("\n--- Design Patterns Course ---");
-        PatternCourse.deliverContent();
+        portal3.enrollInCourse(PatternCourse);
+        portal3.startLearning(PatternCourse);
+        portal3.completeCourse(PatternCourse);
+        portal3.showProgress();
+
     }
 }
