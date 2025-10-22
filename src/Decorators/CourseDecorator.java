@@ -1,14 +1,15 @@
 package Decorators;
-import Inerfaces.Course;
+import Interfaces.Course;
 
 public abstract class CourseDecorator implements Course {
-    protected Course decoratedCourse;
+    private final Course course;
 
     public CourseDecorator(Course course) {
-        this.decoratedCourse = course;
+        this.course = course;
     }
 
+    @Override
     public void deliverContent() {
-        decoratedCourse.deliverContent();
+        course.deliverContent();
     }
 }

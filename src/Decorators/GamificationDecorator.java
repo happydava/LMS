@@ -1,18 +1,34 @@
 package Decorators;
-import Inerfaces.*;
 
-public class GamificationDecorator implements Gamification {
-    private final Course course;
-    private final Gamification gamification;
+import Interfaces.Course;
 
-    public GamificationDecorator(Course course, Gamification gamification) {
+public class GamificationDecorator implements Course {
+    private Course course;
+    private int points = 0;
+
+    public GamificationDecorator(Course course) {
         this.course = course;
-        this.gamification = gamification;
     }
 
     @Override
-    public void addGamification() {
+    public void deliverContent() {
         course.deliverContent();
-        gamification.addGamification();
+        points += 10;
+        System.out.println("Earned 10 points! Total points: " + points);
+    }
+
+    @Override
+    public void complete() {
+        course.complete();
+    }
+
+    @Override
+    public String getName() {
+        return course.getName();
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return course.isCompleted();
     }
 }

@@ -1,5 +1,5 @@
 package Mentors;
-import Inerfaces.Mentor;
+import Interfaces.Mentor;
 
 public class FizraMentor implements Mentor {
     @Override
