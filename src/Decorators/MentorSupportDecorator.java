@@ -1,21 +1,32 @@
 package Decorators;
-import Inerfaces.*;
 
-public class MentorSupportDecorator implements Mentor {
-    private final Course course;
-    private final Mentor mentor;
+import Interfaces.Course;
 
-    public MentorSupportDecorator(Course course, Mentor mentor) {
+public class MentorSupportDecorator implements Course {
+    private Course course;
+
+    public MentorSupportDecorator(Course course) {
         this.course = course;
-        this.mentor = mentor;
     }
 
     @Override
-    public void assist() {
+    public void deliverContent() {
         course.deliverContent();
-        mentor.assist();
+        System.out.println("Mentor support is available for this course.");
+    }
+
+    @Override
+    public void complete() {
+        course.complete();
+    }
+
+    @Override
+    public String getName() {
+        return course.getName();
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return course.isCompleted();
     }
 }
-
-
-

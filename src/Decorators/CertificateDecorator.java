@@ -1,20 +1,32 @@
 package Decorators;
-import Inerfaces.*;
 
-public class CertificateDecorator implements Certificate {
-    private final Course course;
-    private final Certificate certificate;
+import Interfaces.Course;
 
-    public CertificateDecorator (Course course, Certificate certificate) {
-        this.certificate = certificate;
+public class CertificateDecorator implements Course {
+    private Course course;
+
+    public CertificateDecorator(Course course) {
         this.course = course;
     }
 
     @Override
-    public void addCertificate() {
+    public void deliverContent() {
         course.deliverContent();
-        certificate.addCertificate();
-
+        System.out.println("Certificate will be issued upon completion.");
     }
 
+    @Override
+    public void complete() {
+        course.complete();
+    }
+
+    @Override
+    public String getName() {
+        return course.getName();
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return course.isCompleted();
+    }
 }

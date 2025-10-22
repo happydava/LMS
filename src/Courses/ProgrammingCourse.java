@@ -2,12 +2,12 @@ package Courses;
 
 import Interfaces.Course;
 
-public class MathCourse implements Course {
+public class ProgrammingCourse implements Course {
     private boolean completed = false;
 
     @Override
     public void deliverContent() {
-        System.out.println("Delivering Math Course content...");
+        System.out.println("Delivering Programming Course content...");
     }
 
     @Override
@@ -17,7 +17,7 @@ public class MathCourse implements Course {
 
     @Override
     public String getName() {
-        return "Math Course";
+        return "Programming Course";
     }
 
     @Override
